@@ -1,4 +1,5 @@
 export class User {
+    gettoken: any;
 
     constructor(
         public _id: string,
