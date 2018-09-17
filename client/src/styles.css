@@ -1,7 +1,39 @@
+/* Generales */
+.h1-strong{
+    font-size: 35px;
+    font-weight: bold;
+    margin-left: 13px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.jumbotron{
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.jumbotron .btn{
+    margin: 5px;
+}
+
+.navigation .navbar .dropdown-menu *{
+    color: black !important;
+}
+
+.navigation .dropdown.open {
+    background: #cc1717;
+}
+
 /*Cabecera*/
 
 .navigation {
     padding: 0px !important;
+}
+
+.pointer {
+    cursor: pointer;
 }
 
 .navigation .navbar {
@@ -12,4 +44,12 @@
 
 .navigation .navbar *{
     color: white !important;
+}
+
+.active{
+    background: #cc1717;
+}
+
+.navigation .navbar a:hover{
+    background: #cc1717 !important;
 }
