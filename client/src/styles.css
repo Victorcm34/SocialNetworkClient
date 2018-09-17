@@ -53,3 +53,18 @@
 .navigation .navbar a:hover{
     background: #cc1717 !important;
 }
+
+
+.avatar{
+    width: 35px;
+    height: 35px;
+    border-radius: 100px;
+    overflow: hidden;
+    margin-top: 9px;
+    margin-right: 2px;
+}
+
+.avatar .img{
+    height: 38px;
+    width: 38px;
+} 
