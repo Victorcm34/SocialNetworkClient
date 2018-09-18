@@ -68,3 +68,28 @@
     height: 38px;
     width: 38px;
 } 
+
+.item-user .image_user{
+    width: 75px;
+    height: 75px;
+    border-radius: 100px;
+    overflow: hidden;
+    margin-right: 15px;
+}
+
+.item-user .image_user a img{
+    width: 100%;
+}
+
+.item-user .user_name{
+    margin-top: 10px;
+}
+
+.item-user .user_name .nickname{
+    color: #969393;
+}
+
+.item-user .user_name .name-surname a{
+    color: #3a3a44;
+    font-weight: bold;
+}

@@ -33,8 +33,6 @@ export class UserEditComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log(this.identity);
-        console.log('User-edit se ha cargado');
     }
 
     onSubmit() {
@@ -57,7 +55,7 @@ export class UserEditComponent implements OnInit {
                 }
             },
             error => {
-                console.log(error);
+                console.log(error.error);
                 this.status = 'error';
             }
         );
