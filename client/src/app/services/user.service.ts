@@ -73,6 +73,7 @@ export class UserService {
         const headers = new HttpHeaders().set('Content-Type', 'application/json')
                                         .set('Authorization', this.getToken());
 
+        console.log('Hago el servicio getCounters');
         if (userId != null) {
             return this._http.get(this.url + 'counters/' + userId, {headers: headers});
         } else {
