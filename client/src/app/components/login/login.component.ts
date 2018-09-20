@@ -46,8 +46,7 @@ export class LoginComponent implements OnInit {
                 this.status = 'success';
             },
             error => {
-                // tslint:disable-next-line:prefer-const
-                let errorMessage = <any>error;
+                const errorMessage = <any>error;
                 if (errorMessage != null) {
                     this.status = 'error';
                 }
@@ -60,7 +59,6 @@ export class LoginComponent implements OnInit {
         this._userService.singup(this.user, 'true').subscribe(
             response => {
                 this.token = response.token;
-                console.log(this.token);
 
                 if (this.token.length <= 0) {
                     this.status = 'error';
@@ -83,7 +81,7 @@ export class LoginComponent implements OnInit {
     }
 
     getCounters() {
-        this._userService.getCounters().subscribe(
+        this._userService.getCounters(this.identity._id).subscribe(
             response => {
                 localStorage.setItem('stats', JSON.stringify(response));
                 this.status = 'success';

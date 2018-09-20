@@ -1,0 +1,60 @@
+<div class="col-lg-8">
+    <h1 class="h1-strong">{{ title }} </h1>
+
+    <div class="people">
+        <div *ngFor="let user of users" class="item-user">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="image_user pull-left">
+                        <a href="#">
+                            <img src="{{ url + 'get-image-user/' + user.image }}" *ngIf="user.image">
+                            <img src="../../../assets/userAvatar.jpg" *ngIf="!user.image">
+                        </a>
+                    </div>
+                    <div class="user_name pull-left">
+                        <p class="name-surname">
+                            <a href="#">
+                                {{ user.name + ' ' + user.surname }}
+                            </a> 
+                        </p>
+                        <p class="nickname">
+                            {{ user.nick }}
+                        </p>               
+                    </div>
+                    <div class="pull-right" *ngIf="user._id != identity._id">
+                        <button class="btn btn-success" *ngIf="follows.indexOf(user._id) < 0" (click)="followUser(user._id)">
+                            <span class="glyphicon glyphicon-plus-sign"></span> Follow
+                        </button>                        
+                        <button class="btn btn-primary" *ngIf="follows.indexOf(user._id) >= 0" 
+                            (mouseenter)="mouseEnter(user._id)" 
+                            (mouseleave)="mouseLeave()" 
+                            [class.btn-danger]="user._id == followUserOver"
+                            (click)="unfollowUser(user._id)">
+                            <span *ngIf="user._id == followUserOver; else following">
+                                    <span class="glyphicon glyphicon-minus-sign"></span>Unfollow
+                            </span>
+                            <ng-template #following>
+                                <span class="glyphicon glyphicon-ok-sign"></span>
+                                Following
+                            </ng-template>
+                        </button>                                                                                         
+                    </div>
+                </div>                
+            </div>
+        </div>
+
+        <ul class="pagination pull-right">
+            <li *ngIf="page > 1">
+                <a [routerLink]="['/gente', prev_page]">Anterior</a>
+            </li>
+            <li *ngIf="pages != page">
+                <a [routerLink]="['/gente', next_page]">Siguiente</a>
+            </li>
+        </ul>
+
+    </div>    
+</div>
+
+<app-sidebar></app-sidebar>
+
+<div class="clearfix"></div>
