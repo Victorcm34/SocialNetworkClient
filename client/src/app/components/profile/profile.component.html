@@ -1,0 +1,56 @@
+<div class="col-lg-8">
+    <h1 class="h1-strong">
+        {{ title }}
+    </h1>
+    <div id="data-profile" *ngIf="user">
+        <button class="btn btn-success pull-right" *ngIf="!following">Follow</button>
+        <button class="btn btn-primary pull-right" *ngIf="following">Unfollow</button>
+        <div class="profileAvatar">
+            <img src="{{ url + 'get-image-user/' +  user.image }}" *ngIf="user.image">
+            <img src="../../../assets/userAvatar.jpg" *ngIf="!user.image">
+        </div>
+        <div class="user-name">
+            <p>{{ user.name + ' ' + user.surname}}</p>
+            <p>{{ user.nick }}</p>
+        </div>
+        <div class="follow">
+            <div class="label label-default" *ngIf="followed">
+                Te sigue
+            </div>
+        </div>
+        <div class="stats" *ngIf="stats">
+                <div class="following-data">
+                    <a href="#">
+                        <span class="label-stats">
+                            Siguiendo
+                        </span>
+                        <span class="number-stat">
+                            {{ stats.value.following }}
+                        </span>
+                    </a>
+                </div>
+                <div class="following-data">
+                    <a href="#">
+                        <span class="label-stats">
+                            Seguidores
+                        </span>
+                        <span class="number-stat">
+                            {{ stats.value.followed }}
+                        </span>
+                    </a>
+                </div>
+                <div class="following-data">
+                    <a href="#">
+                        <span class="label-stats">
+                            Publicaciones
+                        </span>
+                        <span class="number-stat">
+                            {{ stats.value.publications }}
+                        </span>
+                    </a>
+                </div>
+            </div>
+    </div>
+</div>
+
+<app-sidebar></app-sidebar>

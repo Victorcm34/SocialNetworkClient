@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Publication } from '../../models/publication';
 import { UserService } from '../../services/user.service';
@@ -24,6 +24,7 @@ export class TimelineComponent implements OnInit {
     public publications: Publication[];
     public itemsPerPage;
     public noMore = false;
+    @Input() user: string;
 
     constructor(
         private _route: ActivatedRoute,
@@ -39,12 +40,11 @@ export class TimelineComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log('Timeline cargado');
-        this.getPublications(this.page);
+        // this.getPublications(this.page);
     }
 
-    getPublications(page, adding = false) {
-        this._publicationService.getPublications(this.token, page).subscribe(
+    getPublications(user, page, adding = false) {
+        this._publicationService.getPublicationsUser(this.token, user, page).subscribe(
             response => {
                 if (response.publications) {
                     this.total = response.total_items;

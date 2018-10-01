@@ -6,6 +6,7 @@ import { GLOBAL } from '../../services/global';
 import { FollowService } from '../../services/follow.service';
 import { Follow } from '../../models/follow';
 import { iif } from 'rxjs';
+import { Stats } from 'fs';
 
 
 @Component({
@@ -28,6 +29,7 @@ export class UsersComponent implements OnInit {
     public url: string;
     public follows;
     public followUserOver;
+    public stats;
 
     constructor(
         private _route: ActivatedRoute,
@@ -75,6 +77,7 @@ export class UsersComponent implements OnInit {
                 if (!response.users) {
                     this.status = 'error';
                 } else {
+                    console.log(response);
                     this.total = response.total;
                     this.users = response.users;
                     this.pages = response.pages;
@@ -116,7 +119,7 @@ export class UsersComponent implements OnInit {
                 } else {
                     this.status = 'success';
                     this.follows.push(followed);
-                    this._userService.getCounters(this.identity._id);
+                    this.getCounters();
                 }
             },
             error => {
@@ -137,7 +140,7 @@ export class UsersComponent implements OnInit {
 
                 if (search !== -1) {
                     this.follows.splice(search, 1);
-                    this._userService.getCounters(this.identity._id);
+                    this.getCounters();
                 }
             },
             error => {
@@ -146,6 +149,19 @@ export class UsersComponent implements OnInit {
                 if (errorMessage != null) {
                     this.status = 'error';
                 }
+            }
+        );
+    }
+
+    getCounters() {
+        this._userService.getCounters(this.identity._id).subscribe(
+            response => {
+                localStorage.setItem('stats', JSON.stringify(response));
+                this.status = 'success';
+                this._router.navigate(['/gente']);
+            },
+            error => {
+                console.log(error);
             }
         );
     }
