@@ -20,7 +20,7 @@
         </div>
         <div class="stats" *ngIf="stats">
                 <div class="following-data">
-                    <a href="#">
+                    <a [routerLink]="['/siguiendo', user._id, 1]">
                         <span class="label-stats">
                             Siguiendo
                         </span>
@@ -30,7 +30,7 @@
                     </a>
                 </div>
                 <div class="following-data">
-                    <a href="#">
+                    <a [routerLink]="['/seguidores', user._id, 1]">
                         <span class="label-stats">
                             Seguidores
                         </span>
@@ -50,6 +50,9 @@
                     </a>
                 </div>
             </div>
+    </div>
+    <div class="col-lg-12" *ngIf="user">
+        <app-publications [user]="user._id"></app-publications>
     </div>
 </div>
 

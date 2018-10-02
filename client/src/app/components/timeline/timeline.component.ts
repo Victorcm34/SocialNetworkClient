@@ -79,16 +79,27 @@ export class TimelineComponent implements OnInit {
     }
 
     viewMore() {
-        if (this.publications.length === this.total) {
+        this.page += 1;
+
+        if (this.page === this.pages) {
             this.noMore = true;
-        } else {
-            this.page += 1;
         }
 
         this.getPublications(this.page, true);
     }
 
-    refresh(event) {
+    refresh(event = null) {
         this.getPublications(1);
+    }
+
+    deleteThisPublication(id) {
+        this._publicationService.deletePublication(this.token, id).subscribe(
+            response => {
+                this.refresh();
+            },
+            error => {
+                console.log(error);
+            }
+        );
     }
 }

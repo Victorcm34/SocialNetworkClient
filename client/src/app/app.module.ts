@@ -14,6 +14,12 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { MomentModule } from 'angular2-moment';
 import { ProfileComponent } from './components/profile/profile.component';
+import { PublicationsComponent } from './components/publications/publications.component';
+import { FollowingComponent } from './components/following/following.component';
+import { FollowedComponent } from './components/followed/followed.component';
+
+
+import { MessagesModule } from './messages/messages.module';
 
 
 
@@ -27,14 +33,18 @@ import { ProfileComponent } from './components/profile/profile.component';
     UsersComponent,
     SidebarComponent,
     TimelineComponent,
-    ProfileComponent
+    ProfileComponent,
+    PublicationsComponent,
+    FollowingComponent,
+    FollowedComponent
   ],
   imports: [
     BrowserModule,
     routing,
     FormsModule,
     HttpClientModule,
-    MomentModule
+    MomentModule,
+    MessagesModule
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent],

@@ -197,7 +197,7 @@
 }
 
 #data-profile{
-    min-height: 500px;
+    /* min-height: 500px; */
     text-align: center;
 }
 
@@ -209,4 +209,12 @@
     font-size: 24px;
     font-weight: bold;
     color: #555;
+}
+
+.publicationImg{
+    margin-bottom: 8px;
+}
+
+.people {
+    min-height: 500px;
 }

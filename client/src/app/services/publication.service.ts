@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/observable';
+import { Observable } from 'rxjs';
 import { Publication } from '../models/publication';
 import {GLOBAL } from './global';
 
@@ -31,7 +31,7 @@ export class PublicationService {
         const headers = new HttpHeaders().set('Content-Type', 'application/json')
                                          .set('Authorization', token);
 
-        return this._http.get(this.url + 'publications/' + userId + '/' + page , {headers: headers});
+        return this._http.get(this.url + 'publications-user/' + userId + '/' + page, {headers: headers});
     }
 
     deletePublication(token, id): Observable<any> {

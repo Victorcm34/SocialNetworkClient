@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/observable';
+import { Observable } from 'rxjs';
 import { User } from '../models/user';
 import {GLOBAL } from './global';
 import { nullSafeIsEquivalent } from '@angular/compiler/src/output/output_ast';

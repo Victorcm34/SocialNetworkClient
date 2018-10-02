@@ -4,7 +4,7 @@ import { FollowService } from '../../services/follow.service';
 import { User } from '../../models/user';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GLOBAL } from '../../services/global';
-import { resolveComponentResources } from '@angular/core/src/metadata/resource_loading';
+
 
 
 @Component({

@@ -8,11 +8,11 @@ import { PublicationService } from '../../services/publication.service';
 
 
 @Component({
-    selector: 'app-timeline',
-    templateUrl: './timeline.component.html',
+    selector: 'app-publications',
+    templateUrl: './publications.component.html',
     providers: [UserService, PublicationService]
 })
-export class TimelineComponent implements OnInit {
+export class PublicationsComponent implements OnInit {
     public identity;
     public token;
     public title: string;
@@ -40,7 +40,7 @@ export class TimelineComponent implements OnInit {
     }
 
     ngOnInit() {
-        // this.getPublications(this.page);
+        this.getPublications(this.user, this.page);
     }
 
     getPublications(user, page, adding = false) {
@@ -79,16 +79,16 @@ export class TimelineComponent implements OnInit {
     }
 
     viewMore() {
-        if (this.publications.length === this.total) {
+        this.page += 1;
+
+        if (this.page === this.pages) {
             this.noMore = true;
-        } else {
-            this.page += 1;
         }
 
-        this.getPublications(this.page, true);
+        this.getPublications(this.user, this.page, true);
     }
 
     refresh(event) {
-        this.getPublications(1);
+        // this.getPublications(1, true);
     }
 }
