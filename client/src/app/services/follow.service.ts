@@ -41,13 +41,19 @@ export class FollowService {
 
     getFollowed(token, userId= null, page = 1): Observable<any> {
         const headers = new HttpHeaders().set('Content-Type', 'application/json')
-        .set('Authorization', token);
+                                            .set('Authorization', token);
 
         if (userId != null) {
             return this._http.get(this.url + 'followed/' + userId + '/' + page, {headers: headers});
         } else {
             return this._http.get(this.url + 'followed', {headers: headers});
         }
+    }
 
+    getMyFollows(token): Observable<any> {
+        const headers = new HttpHeaders().set('Content-Type', 'application/json')
+                                            .set('Authorization', token);
+
+    return this._http.get(this.url + 'get-my-follows/true', {headers: headers});
     }
 }

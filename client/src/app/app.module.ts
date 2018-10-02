@@ -20,6 +20,8 @@ import { FollowedComponent } from './components/followed/followed.component';
 
 
 import { MessagesModule } from './messages/messages.module';
+import { UserService } from './services/user.service';
+import { UserWard } from './services/user.ward';
 
 
 
@@ -46,7 +48,7 @@ import { MessagesModule } from './messages/messages.module';
     MomentModule,
     MessagesModule
   ],
-  providers: [appRoutingProviders],
+  providers: [appRoutingProviders, UserService, UserWard],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
