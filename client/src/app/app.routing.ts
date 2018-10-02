@@ -11,19 +11,20 @@ import { TimelineComponent } from './components/timeline/timeline.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { FollowingComponent } from './components/following/following.component';
 import { FollowedComponent } from './components/followed/followed.component';
+import { UserWard } from './services/user.ward';
 
 const appRoutes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'home', component: HomeComponent},
     {path: 'login', component: LoginComponent},
     {path: 'registro', component: RegisterComponent},
-    {path: 'misdatos', component: UserEditComponent},
-    {path: 'gente/:page', component: UsersComponent},
-    {path: 'gente', component: UsersComponent},
-    {path: 'timeline', component: TimelineComponent},
-    {path: 'perfil/:id', component: ProfileComponent},
-    {path: 'siguiendo/:id/:page', component: FollowingComponent},
-    {path: 'seguidores/:id/:page', component: FollowedComponent},
+    {path: 'misdatos', component: UserEditComponent, canActivate: [UserWard]},
+    {path: 'gente/:page', component: UsersComponent, canActivate: [UserWard]},
+    {path: 'gente', component: UsersComponent, canActivate: [UserWard]},
+    {path: 'timeline', component: TimelineComponent, canActivate: [UserWard]},
+    {path: 'perfil/:id', component: ProfileComponent, canActivate: [UserWard]},
+    {path: 'siguiendo/:id/:page', component: FollowingComponent, canActivate: [UserWard]},
+    {path: 'seguidores/:id/:page', component: FollowedComponent, canActivate: [UserWard]},
     {path: '**', component: HomeComponent}
 ];
 

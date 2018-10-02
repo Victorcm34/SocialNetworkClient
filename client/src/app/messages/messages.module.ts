@@ -7,6 +7,10 @@ import { ReceivedComponent } from './components/received/received.component';
 import { SentComponent } from './components/sent/sent.component';
 import { MessagesRoutingModule } from './messages-routing.component';
 
+import { MomentModule } from 'angular2-moment';
+import { UserService } from '../services/user.service';
+import { UserWard } from '../services/user.ward';
+
 
 
 @NgModule({
@@ -19,7 +23,8 @@ import { MessagesRoutingModule } from './messages-routing.component';
     imports: [
         CommonModule,
         FormsModule,
-        MessagesRoutingModule
+        MessagesRoutingModule,
+        MomentModule
     ],
     exports: [
         MainComponent,
@@ -27,7 +32,7 @@ import { MessagesRoutingModule } from './messages-routing.component';
         ReceivedComponent,
         SentComponent
     ],
-    providers: []
+    providers: [UserService, UserWard]
 })
 
 export class MessagesModule {}
