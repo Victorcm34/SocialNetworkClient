@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 export class MessageService {
     public url: string;
 
-    constructor(private _http) {
+    constructor(private _http: HttpClient) {
         this.url = GLOBAL.url;
     }
 
